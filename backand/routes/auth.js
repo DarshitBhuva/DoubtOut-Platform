@@ -1,6 +1,6 @@
 const express = require('express');
-const LocalStorage = require('node-localStorage').LocalStorage;
-var localStorage = new LocalStorage('./scratch');
+// const LocalStorage = require('node-localStorage').LocalStorage;
+// var localStorage = new LocalStorage('./scratch');
 const User = require("../models/User");
 const Admin = require("../models/Admin");
 
@@ -64,8 +64,8 @@ router.post('/createuser', [
         // console.log(data);
         const authtaken = jwt.sign(data, JWT_SECRET);
 
-        localStorage.setItem('token', authtaken);
-        localStorage.setItem('username', req.body.username);
+        // localStorage.setItem('token', authtaken);
+        // localStorage.setItem('username', req.body.username);
         res.json({ 'success': authtaken, 'username': req.body.username,'date':user.date, 'userType': "user"});
         // res.json({ 'success': authtaken, 'username': req.body.username });
         // res.json({autotaken});
@@ -120,9 +120,9 @@ router.post('/login', [
 
             const authToken = jwt.sign(data, JWT_SECRET);
             //res.json({authToken});
-            localStorage.setItem('token', authToken);
-            localStorage.setItem('username', user.username);
-            localStorage.setItem('since', user.date);
+            // localStorage.setItem('token', authToken);
+            // localStorage.setItem('username', user.username);
+            // localStorage.setItem('since', user.date);
 
             req.body.authtoken = authToken;
             // req.body.userType = user.type;
@@ -145,7 +145,7 @@ router.post('/login', [
 
         const authToken = jwt.sign(admindata, JWT_SECRET);
         //res.json({authToken});
-        localStorage.setItem('token', authToken);
+        // localStorage.setItem('token', authToken);
         //localStorage.setItem('username', user.username);
         
       
@@ -153,7 +153,7 @@ router.post('/login', [
         // req.body.userType = user.type;
 
     //    return res.status(200).json({ 'success': req.body.authtoken, 'username': user.username ,'date':user.date});
-        localStorage.setItem('username', admin.username);
+        // localStorage.setItem('username', admin.username);
 
         req.body.authtoken = authToken;
         // req.body.userType = user.type;
