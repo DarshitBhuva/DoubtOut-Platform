@@ -4,8 +4,8 @@ const fetchuser = require('../middleware/fetchuser');
 const Comment = require("../models/Comment");
 const { route } = require('./questions');
 
-const LocalStorage = require('node-localStorage').LocalStorage;
-var localStorage = new LocalStorage('./scratch');
+// const LocalStorage = require('node-localStorage').LocalStorage;
+// var localStorage = new LocalStorage('./scratch');
 
 const router = express.Router();
 
