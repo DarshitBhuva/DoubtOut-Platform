@@ -5,7 +5,7 @@ const Question = require("../models/Question");
 const User = require("../models/User");
 const Answer = require("../models/Answer");
 
-const ApiFeatures = require("../utils/apifeatures");
+// const ApiFeatures = require("../utils/apifeatures");
 // const { body, validationResult } = require('express-validator');
 // const bcrypt = require('bcryptjs');
 const fetchuser = require('../middleware/fetchuser');

@@ -83,7 +83,7 @@ export default function Content(props) {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ answer: value }),
+            body: JSON.stringify({ answer: value, authToken : localStorage.getItem("authtoken") }),
         });
 
         const json = await response.json()

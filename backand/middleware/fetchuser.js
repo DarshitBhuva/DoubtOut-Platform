@@ -6,7 +6,7 @@ const JWT_SECRET = 'Darshitisagoodboy';
 const fetchuser = (req, res, next) => {
 
     // get user from jwt token and add id to req object
-    const token = localStorage.getItem('token');
+    const token = req.body.authToken;
 
     if(!token)
     {

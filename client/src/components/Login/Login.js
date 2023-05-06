@@ -37,6 +37,7 @@ function Login() {
       window.scrollTo(0, 0);
 
       localStorage.setItem("username", json.username);
+      localStorage.setItem("authtoken", json.success);
 
       if (json.userType === "admin") {
         setTimeout(() => {

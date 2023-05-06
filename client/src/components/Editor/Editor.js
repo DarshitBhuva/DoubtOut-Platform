@@ -31,7 +31,7 @@ export default function Editor(props) {
                 'Content-Type': 'application/json'
             },
 
-            body: JSON.stringify({ title: credentials.title, question: value, tags: credentials.tags }),
+            body: JSON.stringify({ title: credentials.title, question: value, tags: credentials.tags, authToken : localStorage.getItem("authtoken") }),
         });
 
         const json = await response.json()
