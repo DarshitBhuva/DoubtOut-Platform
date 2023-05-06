@@ -19,7 +19,7 @@ function Register() {
     console.log(credentials.password);
 
     //   if(credentials.password != credentials.passwordConfirm){alert("re enter password")};
-    const response = await fetch('http://localhost:5000/api/auth/createuser', {
+    const response = await fetch('https://doubtout-backend.onrender.com/api/auth/createuser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,6 +38,7 @@ function Register() {
 
       setState(true);
       localStorage.setItem('username', json.username);
+      localStorage.setItem("authtoken", json.success);
 
       //stroing date information for profile section..
       const month = new Map();

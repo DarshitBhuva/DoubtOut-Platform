@@ -9,7 +9,7 @@ export default function Tags() {
     const [tags, setTags] = useState([]);
 
     const fetchTags = async () => {
-        await fetch("http://localhost:5000/api/tag/gettag", {
+        await fetch("https://doubtout-backend.onrender.com/api/tag/gettag", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

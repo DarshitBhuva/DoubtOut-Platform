@@ -39,7 +39,7 @@ export default function Content(props) {
     }
     const fetchQuestion = async (id) => {
 
-        await fetch(`http://localhost:5000/api/question/fetchQueById/${id}`, {
+        await fetch(`https://doubtout-backend.onrender.com/api/question/fetchQueById/${id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ export default function Content(props) {
     }
 
     const fetchAnswers = async (id) => {
-        await fetch(`http://localhost:5000/api/answer/fetchanswer/${id}`, {
+        await fetch(`https://doubtout-backend.onrender.com/api/answer/fetchanswer/${id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ export default function Content(props) {
     const handleSubmit = async (e, id) => {
 
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/answer/addanswer/${id}`, {
+        const response = await fetch(`https://doubtout-backend.onrender.com/api/answer/addanswer/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -105,7 +105,7 @@ export default function Content(props) {
             document.getElementById("quedownvotbtn").disabled = false;
             document.getElementById("queupvotebtn").disabled = true;
 
-            const response = await fetch(`http://localhost:5000/api/question/upvote/${id}`, {
+            const response = await fetch(`https://doubtout-backend.onrender.com/api/question/upvote/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -128,7 +128,7 @@ export default function Content(props) {
             document.getElementById("quedownvotbtn").disabled = true;
             document.getElementById("queupvotebtn").disabled = false;
 
-            const response = await fetch(`http://localhost:5000/api/question/downvote/${id}`, {
+            const response = await fetch(`https://doubtout-backend.onrender.com/api/question/downvote/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -152,7 +152,7 @@ export default function Content(props) {
             document.getElementById("ansdownvotebtn"+id).disabled = false;
             document.getElementById("ansupvotebtn"+id).disabled = true;
 
-            const response = await fetch(`http://localhost:5000/api/answer/upvote/${id}`, {
+            const response = await fetch(`https://doubtout-backend.onrender.com/api/answer/upvote/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -177,7 +177,7 @@ export default function Content(props) {
             document.getElementById("ansdownvotebtn" + id).disabled = true;
             document.getElementById("ansupvotebtn" + id).disabled = false;
 
-            const response = await fetch(`http://localhost:5000/api/answer/downvote/${id}`, {
+            const response = await fetch(`https://doubtout-backend.onrender.com/api/answer/downvote/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -196,7 +196,7 @@ export default function Content(props) {
 
     const fetchVotes = async () => {
 
-        const response = await fetch(`http://localhost:5000/api/answer/fetchVotes`, {
+        const response = await fetch(`https://doubtout-backend.onrender.com/api/answer/fetchVotes`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -214,7 +214,7 @@ export default function Content(props) {
     const fetchQueVotes = async (id) => {
 
 
-        const response = await fetch(`http://localhost:5000/api/question/fetchVotes/${id}`, {
+        const response = await fetch(`https://doubtout-backend.onrender.com/api/question/fetchVotes/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -233,7 +233,7 @@ export default function Content(props) {
     const addComment = async (e, id) => {
         e.preventDefault();
 
-        const response = await fetch(`http://localhost:5000/api/comment/addcomment/${id}`, {
+        const response = await fetch(`https://doubtout-backend.onrender.com/api/comment/addcomment/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -251,7 +251,7 @@ export default function Content(props) {
     }
 
     const fetchComments = async (id) => {
-        await fetch(`http://localhost:5000/api/comment/fetchComments`, {
+        await fetch(`https://doubtout-backend.onrender.com/api/comment/fetchComments`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

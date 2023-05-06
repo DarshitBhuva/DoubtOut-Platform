@@ -19,7 +19,7 @@ export default function AdminUser() {
   const navigate = useNavigate()
 
   const fetchUsers = async () => {
-    const response = await fetch('http://localhost:5000/api/admin/users', {
+    const response = await fetch('https://doubtout-backend.onrender.com/api/admin/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export default function AdminUser() {
 
 
   const deleteUser = async (id) => {
-    const response = axios.delete(`http://localhost:5000/api/admin/deleteUser/${id}`, {
+    const response = axios.delete(`https://doubtout-backend.onrender.com/api/admin/deleteUser/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
