@@ -26,60 +26,65 @@ import AdminHome from './components/Admin/AdminHome';
 import Adminanswer from './components/Admin/AdminAnswer';
 import UserProfileAnalysis from './components/Admin/Analysis/UserProfileAnalysis';
 
+import RouteMiddleware from './components/Middelware/RouteMiddleware';
+
+
 function App() {
   return (
     <div>
-     <BrowserRouter>
-      <Navbar />
-      <Routes>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
 
-        <Route path = "/" element = {<Homepage/>}/>
-     
-        <Route path = "/editor" element = {<Editor/>}/>
-        <Route path = "/login" element = {<Login/>}/>
-        <Route path = "/register" element = {<Register/>}/>
-        <Route path="/questions" element = {<Questions />}></Route>
-        <Route path="/question/:type" element = {<Content />}></Route>
-        <Route path="/answer/:type" element = {<UserQuestionContent />}></Route>
-       
-       {/* profile routes */}
-        <Route path='/chart' element={<Chart />}></Route>
-        <Route path='/profile' element={<Profile />}></Route>
-        <Route path='/myquestions' element={<MyQuestions />}></Route>
-        <Route path='/updateque/:type' element = {<UpdateQuestion/>}/>
-        <Route path='/myanswers' element={<MyAnswers />}></Route>
-        <Route path='/analysis' element={<Analysis />}></Route>
-        <Route path="/tags" element={<Tags />}></Route>
-        
-        {/* admin routes  */}
-        <Route path='/adminHome' element={<AdminHome />}></Route>
-        <Route path='/adminuser' element={<AdminUser />}></Route>
-        <Route path='/adminanalysis' element={<AdminAnalysis/>}> </Route>
-        <Route path='/adminquestions' element={<AdminQuestions />}></Route>
-        <Route path='/adminanswer' element={<Adminanswer />}></Route>
-        <Route path='/admin' element={<Admin />}></Route>
-        <Route path='/UserProfileAnalysis/:username' element={<UserProfileAnalysis />}></Route>
-        
-        <Route path='/myquestions' element={<MyQuestions />}></Route>
-        <Route path='/updateque/:type' element = {<UpdateQuestion/>}/>
-        <Route path='/updateans/:type' element= {<UpdateAnswer/>}></Route>
-        <Route path='/myanswers' element={<MyAnswers />}></Route>
-        <Route path='/analysis' element={<Analysis />}></Route>
-        <Route path="/tags" element={<Tags />}></Route>
+        {/* <RouteMiddleware path="/" component={Homepage} title="Home page"></RouteMiddleware> */}
+          <Route path = "/" element = {<Homepage/>}/>
 
-        {/* <Route path="/tags" element={<Tags />}></Route> */}
 
-        {/* tags routers */}
-        <Route path='/tags' element= {<Tags />}></Route>
-        <Route path = '/questionOntags/:type' element = {<QuestionOnTags/>}></Route>
+          <Route path="/editor" element={<Editor />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/questions" element={<Questions />}></Route>
+          <Route path="/question/:type" element={<Content />}></Route>
+          <Route path="/answer/:type" element={<UserQuestionContent />}></Route>
 
-        {/* Search Question */}
-        <Route path = "/search" element={<Search/>}></Route>
-        
-        
-      </Routes>
-      {/* <Footer /> */}
-     </BrowserRouter>
+          {/* profile routes */}
+          <Route path='/chart' element={<Chart />}></Route>
+          <Route path='/profile' element={<Profile />}></Route>
+          <Route path='/myquestions' element={<MyQuestions />}></Route>
+          <Route path='/updateque/:type' element={<UpdateQuestion />} />
+          <Route path='/myanswers' element={<MyAnswers />}></Route>
+          <Route path='/analysis' element={<Analysis />}></Route>
+          <Route path="/tags" element={<Tags />}></Route>
+
+          {/* admin routes  */}
+          <Route path='/adminHome' element={<AdminHome />}></Route>
+          <Route path='/adminuser' element={<AdminUser />}></Route>
+          <Route path='/adminanalysis' element={<AdminAnalysis />}> </Route>
+          <Route path='/adminquestions' element={<AdminQuestions />}></Route>
+          <Route path='/adminanswer' element={<Adminanswer />}></Route>
+          <Route path='/admin' element={<Admin />}></Route>
+          <Route path='/UserProfileAnalysis/:username' element={<UserProfileAnalysis />}></Route>
+
+          <Route path='/myquestions' element={<MyQuestions />}></Route>
+          <Route path='/updateque/:type' element={<UpdateQuestion />} />
+          <Route path='/updateans/:type' element={<UpdateAnswer />}></Route>
+          <Route path='/myanswers' element={<MyAnswers />}></Route>
+          <Route path='/analysis' element={<Analysis />}></Route>
+          <Route path="/tags" element={<Tags />}></Route>
+
+          {/* <Route path="/tags" element={<Tags />}></Route> */}
+
+          {/* tags routers */}
+          <Route path='/tags' element={<Tags />}></Route>
+          <Route path='/questionOntags/:type' element={<QuestionOnTags />}></Route>
+
+          {/* Search Question */}
+          <Route path="/search" element={<Search />}></Route>
+
+
+        </Routes>
+        {/* <Footer /> */}
+      </BrowserRouter>
     </div>
   );
 }

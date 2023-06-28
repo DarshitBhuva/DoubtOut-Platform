@@ -4,10 +4,11 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import NotificationBox from './NotificationBox'
 import { useState, useEffect } from 'react'
 import './Navbar.css'
+// const nodeExternals = require('webpack-node-externals');
 
 // let nodemailer = require("nodemailer");
 // var well = {
-  // boxShadow: "0px 0px 10px 0px #f0f0f0"
+// boxShadow: "0px 0px 10px 0px #f0f0f0"
 // }
 var iconstyle = {
   marginleft: "10px",
@@ -18,7 +19,7 @@ var title = {
   color: "#0D6EFD",
 }
 export default function Navbar() {
-  
+
   const navigate = useNavigate();
   const [loginStatus, setLoginStatus] = useState(false);
   const [show, setShow] = useState(false);
@@ -32,28 +33,24 @@ export default function Navbar() {
     }
   }
 
-  // const sendMail = async (req, res) => {
+  const sendEmail = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/send-email', {
+        method: 'POST'
+      });
 
-    // let testAccount = await nodemailer.createTestAccount();
-
-
-    // let transporter = await nodemailer.createTransport({
-    //   host: "smtp.ethereal.email",
-    //   port: 587,
-    //   auth: {
-    //     user: 'amalia22@ethereal.email',
-    //     pass: 'R58kDqqCbnw1wwACfX',
-    //   },
-    // });
-
-    // let info = await transporter.sendMail({
-    //   from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    //   to: "darshitbhuva1@gmail.com", // list of receivers
-    //   subject: "Hello ✔", // Subject line
-    //   text: "Hello world?", // plain text body
-    //   html: "<b>Hello world?</b>", // html body
-    // });
-  // }
+      if (response.ok) {
+        console.log('Email sent successfully');
+        // Handle any success message or UI update here
+      } else {
+        console.log('Failed to send email');
+        // Handle any error message or UI update here
+      }
+    } catch (error) {
+      console.log('Failed to send email', error);
+      // Handle any error message or UI update here
+    }
+  }
 
   const logout = () => {
 
@@ -110,19 +107,19 @@ export default function Navbar() {
 
 
           {localStorage.getItem("Usertype") === 'user' && (
-          <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{ bsSscrollHheight: "100px" }}>
-            <li className="nav-item dropdown" >
-              <a className="nav-link dropdown-toggle" href="/" id="navbarScrollingDropdown" role="button" aria-expanded="false" style={{ color: 'black' }}>
-                Products
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style={{ color: 'black' }}>
-                <li><NavLink className="dropdown-item" to="/questions">Questions</NavLink></li>
-                <li><a className="dropdown-item" href="/editor">Code Editor</a></li>
-                <li><hr className="dropdown-divider" /></li>
-                {/* <li><a className="dropdown-item" href="/">FAQ</a></li> */}
-              </ul>
-            </li>
-          </ul>)}
+            <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{ bsSscrollHheight: "100px" }}>
+              <li className="nav-item dropdown" >
+                <a className="nav-link dropdown-toggle" href="/" id="navbarScrollingDropdown" role="button" aria-expanded="false" style={{ color: 'black' }}>
+                  Products
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style={{ color: 'black' }}>
+                  <li><NavLink className="dropdown-item" to="/questions">Questions</NavLink></li>
+                  <li><a className="dropdown-item" href="/editor">Code Editor</a></li>
+                  <li><hr className="dropdown-divider" /></li>
+                  {/* <li><a className="dropdown-item" href="/">FAQ</a></li> */}
+                </ul>
+              </li>
+            </ul>)}
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -136,19 +133,19 @@ export default function Navbar() {
             <div className="searchbar">
 
             </div>
-              <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" Style={{ bsSscrollHheight: "100px" }}>
-                <li class="nav-item">
-            {localStorage.getItem("Usertype") === 'user' && (
+            <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" Style={{ bsSscrollHheight: "100px" }}>
+              <li class="nav-item">
+                {localStorage.getItem("Usertype") === 'user' && (
                   <a className="nav-link mr" href="/editor" style={{ color: 'black' }}><button className='btn btn-outline dark'>&lt;/&gt;</button></a>
-                  )}
-                </li>
+                )}
+              </li>
 
-              </ul>
+            </ul>
 
             {loginStatus && (localStorage.getItem("Usertype") === 'user') && (<NavLink to='/analysis' className='btn btn-white mr-2'>{localStorage.getItem("username")}</NavLink>)}
             <button className='btn btn-white mr-2'><i className="fa fa-home"></i></button>
 
-            {/* <button className='btn btn-white  mr-2' onClick={() => setShow(!show)}><i className="fas fa-bell"></i></button> */}
+            {/* <button className='btn btn-primary  mr-2' onClick={sendEmail}>Email</button> */}
 
             {/* <button className='btn btn-white  mr-2'><i className="fa fa-question" aria-hidden="true"></i></button> */}
             {/* <button className='btn btn-white mr-2'><i className="fa fa-trophy"></i></button> */}
@@ -194,3 +191,4 @@ export default function Navbar() {
     </div>
   )
 }
+

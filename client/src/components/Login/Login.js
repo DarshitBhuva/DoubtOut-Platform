@@ -5,12 +5,37 @@ import './Login.css'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+// import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+
 function Login() {
 
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" })
   const [state, setState] = useState(false);
+  // const clientId = "711207647760-to381u2algt74g84fsnvqji665pa4tlt.apps.googleusercontent.com";
 
+
+
+  const [showloginButton, setShowloginButton] = useState(true);
+  const [showlogoutButton, setShowlogoutButton] = useState(false);
+
+  const onLoginSuccess = (res) => {
+    console.log('Login Success:', res.profileObj);
+    setShowloginButton(false);
+    setShowlogoutButton(true);
+  };
+
+  const onLoginFailure = (res) => {
+    console.log('Login Failed:', res);
+  };
+
+  const onSignoutSuccess = () => {
+    alert("You have been logged out successfully");
+    console.clear();
+    setShowloginButton(true);
+    setShowlogoutButton(false);
+  };
   // const isLoggedin = () => {
   //   if (localStorage.getItem('username')) {
   //     return true
@@ -56,7 +81,7 @@ function Login() {
       console.log(json.date.toLocaleString('default', { month: 'long' }));
 
       localStorage.setItem("since", month[mn] + " " + year);
-      localStorage.setItem("Usertype",json.userType);
+      localStorage.setItem("Usertype", json.userType);
 
       if (json.userType === "user") {
         setTimeout(() => {
@@ -129,9 +154,31 @@ function Login() {
                   value="Login"  >Login </button>
               </div>
             </form>
-            <div className="signup">Don't have account?
+            <div className="signup mb-3">Don't have account?
               <NavLink to="/register">Signup Now</NavLink>
             </div>
+            {/* <div>
+              <GoogleOAuthProvider clientId="711207647760-02vkuot8b6i4drfhd1jv59e5b4qr03p8.apps.googleusercontent.com">
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                  }}
+                  onError={() => {
+                    console.log('Login Failed');
+                  }}
+
+                />
+                <GoogleLogin
+                  onSuccess={credentialResponse => {
+                    console.log(credentialResponse);
+                  }}
+                  onError={() => {
+                    console.log('Login Failed');
+                  }}
+                  useOneTap
+                />
+              </GoogleOAuthProvider>
+            </div> */}
           </div>
         </div>
       </body>
