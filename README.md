@@ -7,11 +7,6 @@
 Link 👉 https://doubtout.netlify.app/
 
 
-## Authors
-
-- [@octokatherine](https://www.github.com/octokatherine)
-
-
 ## Tech Stack
 
 ![MIT License](https://img.shields.io/badge/-MongoDB-green)
